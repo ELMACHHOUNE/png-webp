@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useRef } from "react";
-import ImageConverter from "./ImageConverter";
+import ImageConverter from "../components/ImageConverter";
 import Hero from "@/components/Hero";
 import Features from "@/components/Features";
 import Contact from "@/components/Contact";
