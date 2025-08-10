@@ -122,7 +122,10 @@ export default function RootLayout({
         <meta name="msapplication-config" content="/browserconfig.xml" />
         <link rel="shortcut icon" href="/icon.png" />
       </head>
-      <body className="bg-gradient-to-br from-slate-900 to-slate-800 text-white min-h-screen transition-colors antialiased">
+      <body
+        className="bg-gradient-to-br from-slate-900 to-slate-800 text-white min-h-screen transition-colors antialiased"
+        suppressHydrationWarning={true}
+      >
         <header className="w-full border-b border-slate-700/50 bg-slate-900/80 backdrop-blur-sm sticky top-0 z-30">
           <NavBar />
         </header>
