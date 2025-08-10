@@ -20,25 +20,70 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "PNG-WEBP - Professional Image Converter",
-    template: "%s | PNG-WEBP",
+    default: "ImgConvert - AI-Powered Image Converter & Optimizer 2025",
+    template: "%s | ImgConvert - Professional Image Tools",
   },
   description:
-    "Transform your images with PNG-WEBP - professional-grade image converter. Support for WebP, PNG, JPEG, AVIF formats with batch processing, compression, and quality optimization. 100% free, unlimited, and secure.",
+    "Transform images instantly with ImgConvert - AI-powered image converter 2025. Convert WebP, PNG, JPEG, AVIF, HEIC formats. Batch processing, smart compression, cloud-based conversion. Free, unlimited, and lightning-fast image optimization tools.",
   keywords: [
-    "image converter",
-    "webp converter",
-    "png to jpg",
-    "image compression",
+    // Core conversion keywords 2025
+    "ai image converter 2025",
+    "smart image converter",
+    "cloud image converter",
+    "instant image conversion",
+    "webp converter online",
+    "png to jpg converter",
+    "jpeg optimizer 2025",
+    "avif converter tool",
+    "heic to jpg converter",
     "batch image converter",
+
+    // Trending tech keywords 2025
+    "ai-powered image tools",
+    "machine learning image processing",
+    "cloud-based image converter",
+    "edge computing image tools",
+    "progressive web app converter",
+    "mobile-first image converter",
+    "next-gen image formats",
+    "intelligent image compression",
+
+    // Popular search terms 2025
     "free image converter",
-    "online image converter",
-    "avif converter",
-    "image optimizer",
+    "unlimited image conversion",
+    "no watermark converter",
+    "privacy-first image tools",
+    "offline image converter",
+    "fast image processing",
+    "professional image optimizer",
+    "bulk image converter",
+    "image format converter",
+    "lossless image compression",
+
+    // Voice search optimized
+    "convert images online free",
+    "how to convert webp to png",
+    "best image converter 2025",
+    "compress images without quality loss",
+    "change image format online",
+
+    // Industry specific
+    "web developer image tools",
+    "photographer image converter",
+    "graphic designer tools",
+    "e-commerce image optimizer",
+    "social media image converter",
+    "blog image optimization",
+
+    // Mobile and accessibility
+    "mobile image converter",
+    "responsive image tools",
+    "accessible image converter",
+    "touch-friendly converter",
   ],
-  authors: [{ name: "PNG-WEBP Team" }],
-  creator: "PNG-WEBP",
-  publisher: "PNG-WEBP",
+  authors: [{ name: "ImgConvert - GoToDev Team" }],
+  creator: "GoToDev - ImgConvert",
+  publisher: "GoToDev Technology",
   robots: {
     index: true,
     follow: true,
@@ -70,34 +115,40 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://png-webp.vercel.app",
-    siteName: "PNG-WEBP",
-    title: "PNG-WEBP - Professional Image Converter",
+    url: "https://imgconvert.gotodev.ma",
+    siteName: "ImgConvert - AI-Powered Image Converter",
+    title: "ImgConvert - AI-Powered Image Converter & Optimizer 2025",
     description:
-      "Transform your images with professional-grade conversion tools. Support for WebP, PNG, JPEG, AVIF formats. 100% free and unlimited.",
+      "Transform images instantly with AI-powered conversion tools. Support for WebP, PNG, JPEG, AVIF, HEIC formats. Smart compression, batch processing, cloud-based. 100% free and unlimited.",
     images: [
       {
-        url: "/og-image.png",
+        url: "https://imgconvert.gotodev.ma/og-image.png",
         width: 1200,
         height: 630,
-        alt: "PNG-WEBP - Professional Image Converter",
+        alt: "ImgConvert - AI-Powered Image Converter 2025",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "PNG-WEBP - Professional Image Converter",
+    title: "ImgConvert - AI-Powered Image Converter 2025",
     description:
-      "Transform your images with professional-grade conversion tools. Support for WebP, PNG, JPEG, AVIF formats. 100% free and unlimited.",
-    images: ["/og-image.png"],
-    creator: "@png_webp",
+      "Transform images instantly with AI-powered tools. Smart compression, batch processing, next-gen formats. Free, unlimited, and privacy-first.",
+    images: ["https://imgconvert.gotodev.ma/og-image.png"],
+    creator: "@gotodev_ma",
+    site: "@imgconvert_tool",
   },
   alternates: {
-    canonical: "https://png-webp.vercel.app",
+    canonical: "https://imgconvert.gotodev.ma",
   },
-  category: "technology",
-  classification: "Image Processing Tools",
-  metadataBase: new URL("https://png-webp.vercel.app"),
+  category: "AI Technology & Image Processing",
+  classification: "AI-Powered Image Processing Tools",
+  metadataBase: new URL("https://imgconvert.gotodev.ma"),
+  other: {
+    "google-site-verification": "your-verification-code-here",
+    "facebook-domain-verification": "your-fb-verification-code",
+    "pinterest-site-verification": "your-pinterest-code",
+  },
 };
 
 export default function RootLayout({
@@ -117,11 +168,48 @@ export default function RootLayout({
           name="apple-mobile-web-app-status-bar-style"
           content="black-translucent"
         />
-        <meta name="apple-mobile-web-app-title" content="PNG-WEBP" />
-        <meta name="application-name" content="PNG-WEBP" />
+        <meta name="apple-mobile-web-app-title" content="ImgConvert" />
+        <meta name="application-name" content="ImgConvert" />
         <meta name="msapplication-TileColor" content="#0f172a" />
         <meta name="msapplication-config" content="/browserconfig.xml" />
         <link rel="shortcut icon" href="/icon.png" />
+
+        {/* Enhanced SEO meta tags for 2025 */}
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-touch-fullscreen" content="yes" />
+        <meta name="HandheldFriendly" content="True" />
+        <meta name="MobileOptimized" content="320" />
+        <meta name="referrer" content="no-referrer-when-downgrade" />
+
+        {/* Structured data for rich snippets */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebApplication",
+              name: "ImgConvert - AI-Powered Image Converter",
+              url: "https://imgconvert.gotodev.ma",
+              description:
+                "AI-powered image converter supporting WebP, PNG, JPEG, AVIF, HEIC formats with smart compression and batch processing.",
+              applicationCategory: "MultimediaApplication",
+              operatingSystem: "Any",
+              offers: {
+                "@type": "Offer",
+                price: "0",
+                priceCurrency: "USD",
+              },
+              featureList: [
+                "AI-powered conversion",
+                "Batch processing",
+                "Smart compression",
+                "Multiple format support",
+                "Privacy-first design",
+              ],
+            }),
+          }}
+        />
       </head>
       <body
         className="bg-gradient-to-br from-slate-900 to-slate-800 text-white min-h-screen transition-colors antialiased"
