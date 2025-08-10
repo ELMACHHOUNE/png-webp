@@ -13,7 +13,7 @@
   --text-muted: #6b7280;
 }
 
-@theme inline {
+:root {
   --color-background: var(--dark-bg);
   --color-foreground: var(--text-primary);
   --font-sans: var(--font-geist-sans);
