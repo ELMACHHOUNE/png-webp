@@ -11,13 +11,14 @@ export default function LayoutFooter() {
           className="cursor-pointer hover:scale-105 transition-transform duration-300"
           aria-label="Go to homepage"
         >
-          <Image
-            src="/logo2.png"
-            alt="ImageForge Pro Logo"
-            width={24}
-            height={24}
-            className="h-6 w-auto object-contain"
-          />
+          <div className="relative h-6 w-16">
+            <Image
+              src="/logo2.png"
+              alt="ImageForge Pro Logo"
+              fill
+              className="object-contain"
+            />
+          </div>
         </Link>
         <span className="text-slate-300">
           &copy; 2025 &mdash; Made by{" "}
