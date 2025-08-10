@@ -332,10 +332,10 @@ export default function Home() {
                 <div>
                   <div className="font-medium text-gray-200">Email</div>
                   <a
-                    href="mailto:bsuiness.gotodev@gmail.com"
+                    href="mailto:business.gotodev@gmail.com"
                     className="text-[#2ca8f0] hover:text-[#f7bd3e] transition"
                   >
-                    bsuiness.gotodev@gmail.com
+                    business.gotodev@gmail.com
                   </a>
                 </div>
               </div>
