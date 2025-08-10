@@ -1,10 +1,11 @@
 "use client";
 import { CloudUpload } from "lucide-react";
 import { colors } from "@/config/colors";
+import { DropzoneRootProps, DropzoneInputProps } from "react-dropzone";
 
 interface UploadSectionProps {
-  getRootProps: () => any;
-  getInputProps: () => any;
+  getRootProps: () => DropzoneRootProps;
+  getInputProps: () => DropzoneInputProps;
   isDragActive: boolean;
   uploading: boolean;
   uploadProgress: number;

@@ -1,4 +1,5 @@
 "use client";
+import React from "react";
 import {
   Image as ImageIcon,
   FileImage,
@@ -12,7 +13,7 @@ interface FormatOption {
   value: string;
   label: string;
   description: string;
-  icon: JSX.Element;
+  icon: React.ReactElement;
 }
 
 const formatOptions: FormatOption[] = [
