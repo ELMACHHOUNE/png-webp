@@ -6,7 +6,6 @@ import "react-toastify/dist/ReactToastify.css";
 import React from "react";
 import NavBar from "./NavBar";
 import Footer from "./Footer";
-import { Analytics } from "@vercel/analytics/next";
 
 const geistSans = Geist({
   subsets: ["latin"],
@@ -143,7 +142,6 @@ export default function RootLayout({
           theme="dark"
           toastClassName="bg-slate-800 border border-slate-700"
         />
-        <Analytics />
       </body>
     </html>
   );
