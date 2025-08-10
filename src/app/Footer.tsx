@@ -14,7 +14,7 @@ export default function LayoutFooter() {
           <div className="relative h-6 w-16">
             <Image
               src="/logo2.png"
-              alt="ImageForge Pro Logo"
+              alt="PNG-WEBP Logo"
               fill
               className="object-contain"
             />

@@ -116,7 +116,7 @@ export default function Home() {
           <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-0 h-1 bg-gradient-to-r from-blue-400 to-yellow-400 animate-expand-line"></div>
 
           <h1 className="text-5xl sm:text-7xl font-black mb-6 tracking-tight bg-gradient-to-r from-blue-400 via-yellow-400 to-blue-400 bg-clip-text text-transparent">
-            ImageForge Pro
+            PNG-WEBP
             <br />
             <span className="block mt-2 animate-pulse-slow text-white">
               Image Converter

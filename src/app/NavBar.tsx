@@ -10,11 +10,11 @@ export default function NavBar() {
         <Link
           href="/"
           className="flex items-center gap-3 group hover:scale-105 transition-transform duration-300"
-          aria-label="ImageForge Pro - Home"
+          aria-label="PNG-WEBP - Home"
         >
           <img
             src="/logo2.png"
-            alt="ImageForge Pro Logo"
+            alt="PNG-WEBP Logo"
             className="h-10 w-auto object-contain"
           />
         </Link>
