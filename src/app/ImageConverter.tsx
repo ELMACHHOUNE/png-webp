@@ -421,7 +421,7 @@ export default function ImageConverter() {
                   : "opacity-0 scale-95 -translate-y-2 pointer-events-none"
               }`}
             >
-              {formatOptions.map((option, index) => (
+              {formatOptions.map((option) => (
                 <button
                   key={option.value}
                   onClick={() => handleFormatChange(option.value)}

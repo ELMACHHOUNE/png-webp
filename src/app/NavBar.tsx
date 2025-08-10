@@ -1,22 +1,23 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 import React from "react";
+import Link from "next/link";
 
 export default function NavBar() {
   return (
     <nav className="max-w-5xl mx-auto flex items-center justify-between px-4 py-3 backdrop-blur-sm bg-slate-900/80 rounded-lg border border-blue-500/20 shadow-lg">
       <div className="flex items-center gap-3">
-        <a
+        <Link
           href="/"
-          className="cursor-pointer hover:scale-105 transition-transform duration-300"
-          aria-label="Go to homepage"
+          className="flex items-center gap-3 group hover:scale-105 transition-transform duration-300"
+          aria-label="ImageForge Pro - Home"
         >
           <img
             src="/logo2.png"
             alt="ImageForge Pro Logo"
             className="h-10 w-auto object-contain"
           />
-        </a>
+        </Link>
       </div>
       <ul className="flex items-center gap-6 text-sm font-medium">
         <li>
