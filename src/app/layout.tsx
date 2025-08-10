@@ -34,8 +34,8 @@ export default function RootLayout({
       lang="en"
       className={`dark ${geistSans.variable} ${geistMono.variable}`}
     >
-      <body className="bg-zinc-900 text-gray-100 min-h-screen transition-colors antialiased">
-        <header className="w-full border-b border-zinc-800 bg-zinc-900/80 backdrop-blur sticky top-0 z-30">
+      <body className="bg-gradient-to-br from-slate-900 to-slate-800 text-white min-h-screen transition-colors antialiased">
+        <header className="w-full border-b border-slate-700/50 bg-slate-900/80 backdrop-blur-sm sticky top-0 z-30">
           <NavBar />
         </header>
         <main className="flex flex-col items-center min-h-[80vh] w-full bg-transparent">
@@ -51,6 +51,8 @@ export default function RootLayout({
           pauseOnFocusLoss
           draggable
           pauseOnHover
+          theme="dark"
+          toastClassName="bg-slate-800 border border-slate-700"
         />
         <Analytics />
       </body>
