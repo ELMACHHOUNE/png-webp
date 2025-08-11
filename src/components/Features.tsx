@@ -8,7 +8,6 @@ import {
   Shield,
   Smartphone,
 } from "lucide-react";
-import { colors } from "@/config/colors";
 
 const features = [
   {
@@ -61,9 +60,7 @@ export default function Features() {
       id="features"
       className="w-full max-w-6xl mb-20 relative z-10 scroll-animate opacity-0 translate-y-8"
     >
-      <h2
-        className={`text-4xl font-bold mb-12 text-center bg-gradient-to-r ${colors.gradients.primary} bg-clip-text text-transparent`}
-      >
+      <h2 className="text-4xl font-bold mb-12 text-center bg-gradient-primary bg-clip-text text-transparent">
         Powerful Features
       </h2>
 
@@ -74,9 +71,7 @@ export default function Features() {
             className="group relative bg-slate-900/50 backdrop-blur-sm border border-slate-700 rounded-xl p-6 hover:border-blue-400/50 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl scroll-animate opacity-0 translate-y-8 flex flex-col h-full"
             style={{ animationDelay: `${index * 100}ms` }}
           >
-            <div
-              className={`absolute inset-0 rounded-xl bg-gradient-to-r ${colors.gradients.feature} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
-            ></div>
+            <div className="absolute inset-0 rounded-xl bg-gradient-feature opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
             <div className="relative z-10 flex flex-col h-full items-center text-center">
               <div className="w-16 h-16 mb-4 rounded-xl bg-gradient-to-br from-slate-800 to-slate-700 flex items-center justify-center text-3xl group-hover:scale-110 transition-transform duration-300">
@@ -90,9 +85,7 @@ export default function Features() {
                 {feature.description}
               </p>
 
-              <div
-                className={`w-0 h-0.5 bg-gradient-to-r ${colors.gradients.primary} mt-4 group-hover:w-full transition-all duration-500`}
-              ></div>
+              <div className="w-0 h-0.5 bg-gradient-primary mt-4 group-hover:w-full transition-all duration-500"></div>
             </div>
           </div>
         ))}

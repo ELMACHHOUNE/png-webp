@@ -2,7 +2,6 @@
 import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import { Mail, Linkedin } from "lucide-react";
-import { colors } from "@/config/colors";
 
 export default function Contact() {
   const [formStatus, setFormStatus] = useState<
@@ -32,9 +31,7 @@ export default function Contact() {
       id="contact"
       className="w-full max-w-4xl mb-20 relative z-10 scroll-animate opacity-0 translate-y-8"
     >
-      <h2
-        className={`text-3xl font-bold mb-8 text-center bg-gradient-to-r ${colors.gradients.primary} bg-clip-text text-transparent`}
-      >
+      <h2 className="text-3xl font-bold mb-8 text-center bg-gradient-primary bg-clip-text text-transparent">
         Get In Touch
       </h2>
       <div className="grid md:grid-cols-2 gap-12">
@@ -139,7 +136,7 @@ export default function Contact() {
 
             <button
               type="submit"
-              className={`w-full bg-gradient-to-r ${colors.gradients.primary} text-white px-6 py-3 rounded-lg font-semibold hover:from-yellow-400 hover:to-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all duration-300 transform hover:scale-105 disabled:opacity-60`}
+              className="w-full bg-gradient-primary text-white px-6 py-3 rounded-lg font-semibold hover:from-yellow-400 hover:to-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all duration-300 transform hover:scale-105 disabled:opacity-60"
               disabled={formStatus === "sending"}
             >
               {formStatus === "sending" ? "Sending..." : "Send Message"}

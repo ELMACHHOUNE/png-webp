@@ -9,7 +9,6 @@ import UploadSection from "@/components/converter/UploadSection";
 import FormatSelector from "@/components/converter/FormatSelector";
 import CompressionSlider from "@/components/converter/CompressionSlider";
 import ImagePreview from "@/components/converter/ImagePreview";
-import { colors } from "@/config/colors";
 
 /* eslint-disable @next/next/no-img-element */
 
@@ -228,7 +227,7 @@ export default function ImageConverter() {
 
       <section className="flex justify-center">
         <button
-          className={`group relative bg-gradient-to-r ${colors.gradients.secondary} text-white px-8 py-4 rounded-xl font-bold text-lg shadow-2xl hover:shadow-blue-500/25 hover:scale-105 transition-all duration-300 transform focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-60 disabled:cursor-not-allowed overflow-hidden`}
+          className={`group relative bg-gradient-to-r from-blue-500 to-purple-500 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-2xl hover:shadow-blue-500/25 hover:scale-105 transition-all duration-300 transform focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-60 disabled:cursor-not-allowed overflow-hidden`}
           onClick={convertAll}
           disabled={files.length === 0 || processing}
           aria-label="Convert all images"
@@ -247,7 +246,7 @@ export default function ImageConverter() {
             )}
           </span>
           <div
-            className={`absolute inset-0 bg-gradient-to-r ${colors.gradients.secondaryHover} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
+            className={`absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
           ></div>
         </button>
       </section>
@@ -333,7 +332,7 @@ export default function ImageConverter() {
 
       <section className="flex justify-center">
         <button
-          className={`group relative bg-gradient-to-r ${colors.gradients.success} text-white px-8 py-4 rounded-xl font-bold text-lg shadow-2xl hover:shadow-green-500/25 hover:scale-105 transition-all duration-300 transform focus:outline-none focus:ring-2 focus:ring-green-500 disabled:opacity-60 disabled:cursor-not-allowed overflow-hidden`}
+          className={`group relative bg-gradient-to-r from-green-500 to-teal-500 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-2xl hover:shadow-green-500/25 hover:scale-105 transition-all duration-300 transform focus:outline-none focus:ring-2 focus:ring-green-500 disabled:opacity-60 disabled:cursor-not-allowed overflow-hidden`}
           onClick={downloadZip}
           disabled={converted.length === 0}
           aria-label="Download all as ZIP"
@@ -343,7 +342,7 @@ export default function ImageConverter() {
             Download ZIP
           </span>
           <div
-            className={`absolute inset-0 bg-gradient-to-r ${colors.gradients.successHover} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
+            className={`absolute inset-0 bg-gradient-to-r from-green-600 to-teal-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
           ></div>
         </button>
       </section>

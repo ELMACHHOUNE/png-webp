@@ -1,6 +1,5 @@
 "use client";
 import { CloudUpload } from "lucide-react";
-import { colors } from "@/config/colors";
 import { DropzoneRootProps, DropzoneInputProps } from "react-dropzone";
 
 interface UploadSectionProps {
@@ -56,7 +55,7 @@ export default function UploadSection({
             <div className="mb-4">
               <div className="w-full h-3 bg-slate-700 rounded-full relative overflow-hidden">
                 <div
-                  className={`h-full bg-gradient-to-r ${colors.gradients.secondary} rounded-full transition-all duration-300`}
+                  className="h-full bg-gradient-secondary rounded-full transition-all duration-300"
                   style={{ width: `${uploadProgress}%` }}
                 />
                 <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-xs text-slate-300 font-bold px-1">
@@ -70,9 +69,7 @@ export default function UploadSection({
           )}
 
           <button
-            className={`px-6 py-3 bg-gradient-to-r ${
-              colors.gradients.secondary
-            } text-white rounded-lg hover:from-purple-700 hover:to-pink-700 transition-all duration-300 font-medium ${
+            className={`px-6 py-3 bg-gradient-secondary text-white rounded-lg hover:from-purple-700 hover:to-pink-700 transition-all duration-300 font-medium ${
               uploading ? "opacity-50 cursor-not-allowed" : ""
             }`}
             disabled={uploading}

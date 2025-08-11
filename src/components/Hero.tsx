@@ -1,17 +1,12 @@
 "use client";
-import { colors } from "@/config/colors";
 
 export default function Hero() {
   return (
     <section className="w-full max-w-4xl text-center mt-16 mb-12 relative z-10 scroll-animate opacity-0 translate-y-8">
       <div className="relative">
-        <div
-          className={`absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-0 h-1 bg-gradient-to-r ${colors.gradients.primary} animate-expand-line`}
-        ></div>
+        <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-0 h-1 bg-gradient-primary animate-expand-line"></div>
 
-        <h1
-          className={`text-5xl sm:text-7xl font-black mb-6 tracking-tight bg-gradient-to-r ${colors.gradients.primary} bg-clip-text text-transparent`}
-        >
+        <h1 className="text-5xl sm:text-7xl font-black mb-6 tracking-tight bg-gradient-primary bg-clip-text text-transparent">
           PNG-WEBP
           <br />
           <span className="block mt-2 animate-pulse-slow text-white">
@@ -32,12 +27,10 @@ export default function Hero() {
       <div>
         <a
           href="#converter"
-          className={`group inline-block bg-gradient-to-r ${colors.gradients.primary} text-white px-8 py-4 rounded-full font-bold text-lg shadow-2xl hover:shadow-blue-400/25 hover:scale-105 transition-all duration-300 transform relative overflow-hidden`}
+          className="group inline-block bg-gradient-primary text-white px-8 py-4 rounded-full font-bold text-lg shadow-2xl hover:shadow-blue-400/25 hover:scale-105 transition-all duration-300 transform relative overflow-hidden"
         >
           <span className="relative z-10">Start Converting Now ↓</span>
-          <div
-            className={`absolute inset-0 bg-gradient-to-r ${colors.gradients.primaryHover} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
-          ></div>
+          <div className="absolute inset-0 bg-gradient-primary-hover opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
         </a>
       </div>
 
