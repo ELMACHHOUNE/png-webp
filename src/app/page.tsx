@@ -16,6 +16,8 @@ export default function Home() {
           if (entry.isIntersecting) {
             entry.target.classList.add("animate-fade-in-up");
             entry.target.classList.remove("opacity-0", "translate-y-8");
+            // stop observing once animated
+            observerRef.current?.unobserve(entry.target);
           }
         });
       },

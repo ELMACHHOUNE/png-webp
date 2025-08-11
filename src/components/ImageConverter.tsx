@@ -99,6 +99,17 @@ export default function ImageConverter() {
     return () => files.forEach((f) => URL.revokeObjectURL(f.preview));
   }, [files]);
 
+  React.useEffect(() => {
+    /* cleanup previous converted URLs when list changes or on unmount */
+    return () => {
+      converted.forEach((f) => {
+        try {
+          URL.revokeObjectURL(f.url);
+        } catch {}
+      });
+    };
+  }, [converted]);
+
   const handleFormatChange = (format: string) => {
     setOutputFormat(format);
     setConverted([]);
