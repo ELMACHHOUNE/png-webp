@@ -5,52 +5,51 @@ import {
   Zap,
   Eye,
   Download,
-  Shield,
   Smartphone,
 } from "lucide-react";
 
 const features = [
   {
-    title: "Lightning Fast Bulk Upload",
-    icon: <CloudUpload className="w-8 h-8 text-blue-400" />,
+    title: "Quantum-Speed Batch Processing",
+    icon: <CloudUpload className="w-6 h-6" />,
     description:
-      "Drag and drop thousands of images at once with our lightning-fast batch processing engine",
+      "Upload 10,000+ images instantly. Our parallel processing engine handles massive batches faster than you can blink.",
+    color: "from-violet-500 to-purple-600",
   },
   {
-    title: "Universal Format Conversion",
-    icon: <ArrowRightLeft className="w-8 h-8 text-yellow-400" />,
+    title: "Universal Format Alchemy",
+    icon: <ArrowRightLeft className="w-6 h-6" />,
     description:
-      "Convert between WebP, PNG, JPEG, AVIF and more with industry-leading quality preservation",
+      "Transform any image format into any other. WebP, AVIF, HEIC, PNG, JPEG - we speak them all fluently.",
+    color: "from-emerald-500 to-teal-600",
   },
   {
-    title: "AI-Powered Smart Compression",
-    icon: <Zap className="w-8 h-8 text-blue-400" />,
+    title: "Neural Compression Engine",
+    icon: <Zap className="w-6 h-6" />,
     description:
-      "Intelligent compression algorithms that reduce file sizes by up to 90% while maintaining perfect quality",
+      "AI-powered algorithms achieve impossible compression ratios while preserving pixel-perfect quality. Magic meets science.",
+    color: "from-amber-500 to-orange-600",
   },
   {
-    title: "Real-time Preview & Analytics",
-    icon: <Eye className="w-8 h-8 text-yellow-400" />,
+    title: "Crystal Ball Preview",
+    icon: <Eye className="w-6 h-6" />,
     description:
-      "See real-time file size changes, quality metrics, and compression ratios before downloading",
+      "See the future before it happens. Live quality comparisons, size predictions, and visual diff analysis in real-time.",
+    color: "from-cyan-500 to-blue-600",
   },
   {
-    title: "Instant Download & ZIP Export",
-    icon: <Download className="w-8 h-8 text-blue-400" />,
+    title: "Teleport Download System",
+    icon: <Download className="w-6 h-6" />,
     description:
-      "Download individual files or export all converted images as a single ZIP archive",
+      "Instant downloads, smart ZIP packaging, and cloud sync ready. Your converted images arrive before you finish clicking.",
+    color: "from-indigo-500 to-blue-600",
   },
   {
-    title: "100% Privacy & Security",
-    icon: <Shield className="w-8 h-8 text-yellow-400" />,
+    title: "Pocket-Sized Powerhouse",
+    icon: <Smartphone className="w-6 h-6" />,
     description:
-      "Complete client-side processing - your images never leave your device, ensuring maximum privacy",
-  },
-  {
-    title: "Mobile-First Design",
-    icon: <Smartphone className="w-8 h-8 text-slate-400" />,
-    description:
-      "Perfectly optimized for mobile devices with responsive design and touch-friendly interface",
+      "Full desktop power in your pocket. Touch-optimized interface that works flawlessly on any device, anywhere.",
+    color: "from-pink-500 to-fuchsia-600",
   },
 ];
 
@@ -58,35 +57,44 @@ export default function Features() {
   return (
     <section
       id="features"
-      className="w-full max-w-6xl mb-20 relative z-10 scroll-animate opacity-0 translate-y-8"
+      className="w-full max-w-7xl mx-auto px-4 py-20 relative z-10"
     >
-      <h2 className="text-4xl font-bold mb-12 text-center bg-gradient-primary bg-clip-text text-transparent">
-        Powerful Features
-      </h2>
+      <div className="text-center mb-16">
+        <h2 className="text-5xl font-bold mb-4 bg-gradient-to-r from-white via-blue-100 to-white bg-clip-text text-transparent">
+          Revolutionary Features
+        </h2>
+        <p className="text-xl text-slate-400 max-w-2xl mx-auto">
+          Experience the next generation of image processing with features that
+          redefine what's possible
+        </p>
+      </div>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 items-start justify-center">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {features.map((feature, index) => (
           <div
             key={index}
-            className="group relative bg-slate-900/50 backdrop-blur-sm border border-slate-700 rounded-xl p-6 hover:border-blue-400/50 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl scroll-animate opacity-0 translate-y-8 flex flex-col h-full"
-            style={{ animationDelay: `${index * 100}ms` }}
+            className="group relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-8 hover:bg-white/10 hover:border-white/20 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-blue-500/10"
           >
-            <div className="absolute inset-0 rounded-xl bg-gradient-feature opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-
-            <div className="relative z-10 flex flex-col h-full items-center text-center">
-              <div className="w-16 h-16 mb-4 rounded-xl bg-gradient-to-br from-slate-800 to-slate-700 flex items-center justify-center text-3xl group-hover:scale-110 transition-transform duration-300">
-                {feature.icon}
-              </div>
-
-              <h3 className="text-xl font-bold mb-3 text-slate-200 group-hover:text-white transition-colors">
-                {feature.title}
-              </h3>
-              <p className="text-slate-400 leading-relaxed group-hover:text-slate-300 transition-colors flex-grow">
-                {feature.description}
-              </p>
-
-              <div className="w-0 h-0.5 bg-gradient-primary mt-4 group-hover:w-full transition-all duration-500"></div>
+            {/* Icon */}
+            <div
+              className={`inline-flex p-3 rounded-xl bg-gradient-to-r ${feature.color} mb-6 text-white shadow-lg group-hover:scale-110 transition-transform duration-300`}
+            >
+              {feature.icon}
             </div>
+
+            {/* Content */}
+            <h3 className="text-xl font-semibold mb-4 text-white group-hover:text-blue-100 transition-colors duration-300">
+              {feature.title}
+            </h3>
+
+            <p className="text-slate-300 leading-relaxed group-hover:text-slate-200 transition-colors duration-300">
+              {feature.description}
+            </p>
+
+            {/* Hover gradient overlay */}
+            <div
+              className={`absolute inset-0 rounded-2xl bg-gradient-to-r ${feature.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500 pointer-events-none`}
+            ></div>
           </div>
         ))}
       </div>
