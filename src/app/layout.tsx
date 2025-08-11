@@ -7,6 +7,7 @@ import React from "react";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import { Analytics } from "@vercel/analytics/next";
+import { Inter } from "next/font/google";
 
 const geistSans = Geist({
   subsets: ["latin"],
@@ -18,137 +19,11 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
 });
 
+const inter = Inter({ subsets: ["latin"] });
+
 export const metadata: Metadata = {
-  title: {
-    default: "ImgConvert - AI-Powered Image Converter & Optimizer 2025",
-    template: "%s | ImgConvert - Professional Image Tools",
-  },
-  description:
-    "Transform images instantly with ImgConvert - AI-powered image converter 2025. Convert WebP, PNG, JPEG, AVIF, HEIC formats. Batch processing, smart compression, cloud-based conversion. Free, unlimited, and lightning-fast image optimization tools.",
-  keywords: [
-    // Core conversion keywords 2025
-    "ai image converter 2025",
-    "smart image converter",
-    "cloud image converter",
-    "instant image conversion",
-    "webp converter online",
-    "png to jpg converter",
-    "jpeg optimizer 2025",
-    "avif converter tool",
-    "heic to jpg converter",
-    "batch image converter",
-
-    // Trending tech keywords 2025
-    "ai-powered image tools",
-    "machine learning image processing",
-    "cloud-based image converter",
-    "edge computing image tools",
-    "progressive web app converter",
-    "mobile-first image converter",
-    "next-gen image formats",
-    "intelligent image compression",
-
-    // Popular search terms 2025
-    "free image converter",
-    "unlimited image conversion",
-    "no watermark converter",
-    "privacy-first image tools",
-    "offline image converter",
-    "fast image processing",
-    "professional image optimizer",
-    "bulk image converter",
-    "image format converter",
-    "lossless image compression",
-
-    // Voice search optimized
-    "convert images online free",
-    "how to convert webp to png",
-    "best image converter 2025",
-    "compress images without quality loss",
-    "change image format online",
-
-    // Industry specific
-    "web developer image tools",
-    "photographer image converter",
-    "graphic designer tools",
-    "e-commerce image optimizer",
-    "social media image converter",
-    "blog image optimization",
-
-    // Mobile and accessibility
-    "mobile image converter",
-    "responsive image tools",
-    "accessible image converter",
-    "touch-friendly converter",
-  ],
-  authors: [{ name: "ImgConvert - GoToDev Team" }],
-  creator: "GoToDev - ImgConvert",
-  publisher: "GoToDev Technology",
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
-  icons: {
-    icon: [
-      { url: "/favicon.ico", sizes: "any" },
-      { url: "/icon.png", type: "image/png" },
-    ],
-    apple: [
-      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
-    ],
-    other: [
-      {
-        rel: "mask-icon",
-        url: "/safari-pinned-tab.svg",
-        color: "#3b82f6",
-      },
-    ],
-  },
-  manifest: "/manifest.json",
-  openGraph: {
-    type: "website",
-    locale: "en_US",
-    url: "https://imgconvert.gotodev.ma",
-    siteName: "ImgConvert - AI-Powered Image Converter",
-    title: "ImgConvert - AI-Powered Image Converter & Optimizer 2025",
-    description:
-      "Transform images instantly with AI-powered conversion tools. Support for WebP, PNG, JPEG, AVIF, HEIC formats. Smart compression, batch processing, cloud-based. 100% free and unlimited.",
-    images: [
-      {
-        url: "https://imgconvert.gotodev.ma/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "ImgConvert - AI-Powered Image Converter 2025",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "ImgConvert - AI-Powered Image Converter 2025",
-    description:
-      "Transform images instantly with AI-powered tools. Smart compression, batch processing, next-gen formats. Free, unlimited, and privacy-first.",
-    images: ["https://imgconvert.gotodev.ma/og-image.png"],
-    creator: "@gotodev_ma",
-    site: "@imgconvert_tool",
-  },
-  alternates: {
-    canonical: "https://imgconvert.gotodev.ma",
-  },
-  category: "AI Technology & Image Processing",
-  classification: "AI-Powered Image Processing Tools",
-  metadataBase: new URL("https://imgconvert.gotodev.ma"),
-  other: {
-    "google-site-verification": "your-verification-code-here",
-    "facebook-domain-verification": "your-fb-verification-code",
-    "pinterest-site-verification": "your-pinterest-code",
-  },
+  title: "Image Converter",
+  description: "Convert images instantly",
 };
 
 export default function RootLayout({
@@ -212,7 +87,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className="bg-gradient-to-br from-slate-900 to-slate-800 text-white min-h-screen transition-colors antialiased"
+        className={`bg-gradient-to-br from-slate-900 to-slate-800 text-white min-h-screen transition-colors antialiased ${inter.className}`}
         suppressHydrationWarning={true}
       >
         <header className="w-full border-b border-slate-700/50 bg-slate-900/80 backdrop-blur-sm sticky top-0 z-30">
