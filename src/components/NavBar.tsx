@@ -2,6 +2,7 @@
 "use client";
 import React from "react";
 import Link from "next/link";
+import LanguageDropdown from "./LanguageDropdown";
 
 export default function NavBar() {
   return (
@@ -35,6 +36,9 @@ export default function NavBar() {
           >
             Contact
           </a>
+        </li>
+        <li>
+          <LanguageDropdown />
         </li>
       </ul>
     </nav>
