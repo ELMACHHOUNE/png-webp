@@ -1,6 +1,7 @@
 "use client";
 import { CloudUpload } from "lucide-react";
 import { DropzoneRootProps, DropzoneInputProps } from "react-dropzone";
+import { useI18n } from "../../lib/i18n";
 
 interface UploadSectionProps {
   getRootProps: () => DropzoneRootProps;
@@ -17,6 +18,8 @@ export default function UploadSection({
   uploading,
   uploadProgress,
 }: UploadSectionProps) {
+  const { t } = useI18n();
+
   return (
     <section className="relative bg-slate-900/50 backdrop-blur-sm border border-slate-700/50 rounded-xl p-8 hover:border-slate-600/50 transition-all duration-300">
       <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-pink-500/10 opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
@@ -40,15 +43,13 @@ export default function UploadSection({
 
           <h3 className="text-xl font-semibold text-slate-200 mb-2">
             {uploading
-              ? "Uploading..."
+              ? t("upload.uploading")
               : isDragActive
-              ? "Drop images here"
-              : "Upload Images"}
+              ? t("upload.dropHere")
+              : t("upload.title")}
           </h3>
           <p className="text-slate-400 mb-4">
-            {uploading
-              ? "Processing your images..."
-              : "Drag & drop images here, or click to browse"}
+            {uploading ? t("upload.processing") : t("upload.subtitle")}
           </p>
 
           {uploading && (
@@ -63,7 +64,8 @@ export default function UploadSection({
                 </span>
               </div>
               <p className="text-sm text-slate-400 mt-2">
-                Uploading {uploadProgress}% complete
+                {t("upload.progressPrefix")} {uploadProgress}%
+                {t("upload.progressSuffix")}
               </p>
             </div>
           )}
@@ -74,7 +76,9 @@ export default function UploadSection({
             }`}
             disabled={uploading}
           >
-            {uploading ? "Uploading..." : "Choose Files"}
+            {uploading
+              ? t("upload.button.uploading")
+              : t("upload.button.choose")}
           </button>
         </div>
       </div>

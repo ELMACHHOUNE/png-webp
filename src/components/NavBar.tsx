@@ -2,9 +2,12 @@
 "use client";
 import React from "react";
 import Link from "next/link";
+import { useI18n } from "@/lib/i18n";
 import LanguageDropdown from "./LanguageDropdown";
 
 export default function NavBar() {
+  const { t } = useI18n();
+
   return (
     <nav className="max-w-5xl mx-auto flex items-center justify-between px-4 py-3 backdrop-blur-sm bg-slate-900/80 rounded-lg border border-blue-500/20 shadow-lg">
       <div className="flex items-center gap-3">
@@ -26,7 +29,7 @@ export default function NavBar() {
             href="#features"
             className="text-slate-400 hover:text-blue-400 transition-colors duration-300 hover:scale-105 transform"
           >
-            Features
+            {t("nav.features")}
           </a>
         </li>
         <li>
@@ -34,7 +37,7 @@ export default function NavBar() {
             href="#contact"
             className="text-slate-400 hover:text-yellow-400 transition-colors duration-300 hover:scale-105 transform"
           >
-            Contact
+            {t("nav.contact")}
           </a>
         </li>
         <li>

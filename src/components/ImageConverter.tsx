@@ -9,6 +9,7 @@ import UploadSection from "@/components/converter/UploadSection";
 import FormatSelector from "@/components/converter/FormatSelector";
 import CompressionSlider from "@/components/converter/CompressionSlider";
 import ImagePreview from "@/components/converter/ImagePreview";
+import { useI18n } from "../lib/i18n";
 
 /* eslint-disable @next/next/no-img-element */
 
@@ -42,50 +43,56 @@ export default function ImageConverter() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [uploading, setUploading] = useState(false);
   const [uploadProgress, setUploadProgress] = useState(0);
+  const { t } = useI18n();
 
-  const onDrop = useCallback((acceptedFiles: File[]) => {
-    if (acceptedFiles.length === 0) return;
+  const onDrop = useCallback(
+    (acceptedFiles: File[]) => {
+      if (acceptedFiles.length === 0) return;
 
-    setUploading(true);
-    setUploadProgress(0);
+      setUploading(true);
+      setUploadProgress(0);
 
-    const totalFiles = acceptedFiles.length;
-    let processedFiles = 0;
+      const totalFiles = acceptedFiles.length;
+      let processedFiles = 0;
 
-    const processFiles = () => {
-      const batch = acceptedFiles.slice(processedFiles, processedFiles + 1);
+      const processFiles = () => {
+        const batch = acceptedFiles.slice(processedFiles, processedFiles + 1);
 
-      batch.forEach((file) => {
-        const mapped = {
-          file,
-          preview: URL.createObjectURL(file),
-        };
-        setFiles((curr) => [...curr, mapped]);
-        processedFiles++;
+        batch.forEach((file) => {
+          const mapped = {
+            file,
+            preview: URL.createObjectURL(file),
+          };
+          setFiles((curr) => [...curr, mapped]);
+          processedFiles++;
 
-        const progress = Math.round((processedFiles / totalFiles) * 100);
-        setUploadProgress(progress);
+          const progress = Math.round((processedFiles / totalFiles) * 100);
+          setUploadProgress(progress);
 
-        if (processedFiles < totalFiles) {
-          setTimeout(processFiles, 100);
-        } else {
-          setTimeout(() => {
-            setUploading(false);
-            setUploadProgress(0);
-            setConverted([]);
-            setProgress([]);
-            toast.success(
-              `${totalFiles} image${
-                totalFiles > 1 ? "s" : ""
-              } uploaded successfully!`
-            );
-          }, 200);
-        }
-      });
-    };
+          if (processedFiles < totalFiles) {
+            setTimeout(processFiles, 100);
+          } else {
+            setTimeout(() => {
+              setUploading(false);
+              setUploadProgress(0);
+              setConverted([]);
+              setProgress([]);
+              toast.success(
+                `${totalFiles} ${
+                  totalFiles > 1
+                    ? t("converter.common.images")
+                    : t("converter.common.image")
+                } ${t("converter.toast.uploaded")}`
+              );
+            }, 200);
+          }
+        });
+      };
 
-    processFiles();
-  }, []);
+      processFiles();
+    },
+    [t]
+  );
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,
@@ -183,9 +190,9 @@ export default function ImageConverter() {
     setProcessing(false);
 
     if (errorOccurred) {
-      toast.error("Some images failed to convert.");
+      toast.error(t("converter.toast.someFailed"));
     } else {
-      toast.success("All images converted successfully!");
+      toast.success(t("converter.toast.allConverted"));
     }
   };
 
@@ -201,7 +208,7 @@ export default function ImageConverter() {
     a.download = "converted-images.zip";
     a.click();
     setTimeout(() => URL.revokeObjectURL(url), 1000);
-    toast.success("ZIP downloaded!");
+    toast.success(t("converter.toast.zipDownloaded"));
   };
 
   return (
@@ -241,18 +248,18 @@ export default function ImageConverter() {
           className={`group relative bg-gradient-to-r from-blue-500 to-purple-500 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-2xl hover:shadow-blue-500/25 hover:scale-105 transition-all duration-300 transform focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-60 disabled:cursor-not-allowed overflow-hidden`}
           onClick={convertAll}
           disabled={files.length === 0 || processing}
-          aria-label="Convert all images"
+          aria-label={t("converter.aria.convertAll")}
         >
           <span className="relative z-10 flex items-center gap-2">
             {processing ? (
               <>
                 <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
-                Converting...
+                {t("converter.processing")}
               </>
             ) : (
               <>
                 <Zap className="w-5 h-5" />
-                Convert All Images
+                {t("converter.convertAll")}
               </>
             )}
           </span>
@@ -269,7 +276,7 @@ export default function ImageConverter() {
           <div className="relative z-10">
             <h2 className="text-xl font-bold mb-4 text-slate-200 flex items-center gap-2">
               <CheckCircle className="w-6 h-6 text-green-400" />
-              Converted Images
+              {t("converter.convertedImages")}
             </h2>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
               {converted.map((f, idx) => (
@@ -281,16 +288,18 @@ export default function ImageConverter() {
                     src={f.url}
                     alt={f.name}
                     className="w-full h-20 object-cover rounded-lg shadow-lg cursor-pointer hover:scale-110 focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all duration-300"
-                    title="Click to download"
+                    title={t("converter.tooltip.clickToDownload")}
                     onClick={() => {
                       const a = document.createElement("a");
                       a.href = f.url;
                       a.download = f.name;
                       a.click();
-                      toast.success("Image downloaded!");
+                      toast.success(t("converter.toast.imageDownloaded"));
                     }}
                     tabIndex={0}
-                    aria-label={`Download image ${f.name}`}
+                    aria-label={`${t("converter.aria.downloadImage")} ${
+                      f.name
+                    }`}
                   />
 
                   <div className="mt-2 text-center">
@@ -301,7 +310,8 @@ export default function ImageConverter() {
                       {f.name}
                     </span>
                     <span className="text-[10px] text-slate-400">
-                      {((f.compressedSize || 0) / 1024).toFixed(1)} KB
+                      {((f.compressedSize || 0) / 1024).toFixed(1)}{" "}
+                      {t("converter.size.kb")}
                       {f.compressedSize && f.originalSize ? (
                         <>
                           {" "}
@@ -310,7 +320,7 @@ export default function ImageConverter() {
                             {Math.round(
                               100 - (f.compressedSize / f.originalSize) * 100
                             )}
-                            % smaller)
+                            % {t("converter.size.smaller")})
                           </span>
                         </>
                       ) : null}
@@ -346,11 +356,11 @@ export default function ImageConverter() {
           className={`group relative bg-gradient-to-r from-green-500 to-teal-500 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-2xl hover:shadow-green-500/25 hover:scale-105 transition-all duration-300 transform focus:outline-none focus:ring-2 focus:ring-green-500 disabled:opacity-60 disabled:cursor-not-allowed overflow-hidden`}
           onClick={downloadZip}
           disabled={converted.length === 0}
-          aria-label="Download all as ZIP"
+          aria-label={t("converter.aria.downloadAllZip")}
         >
           <span className="relative z-10 flex items-center gap-2">
             <Download className="w-5 h-5" />
-            Download ZIP
+            {t("converter.downloadZip")}
           </span>
           <div
             className={`absolute inset-0 bg-gradient-to-r from-green-600 to-teal-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300`}

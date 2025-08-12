@@ -2,12 +2,14 @@
 import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import { Mail, Linkedin } from "lucide-react";
+import { useI18n } from "../lib/i18n";
 
 export default function Contact() {
   const [formStatus, setFormStatus] = useState<
     "idle" | "sending" | "success" | "error"
   >("idle");
   const formRef = useRef<HTMLFormElement>(null);
+  const { t } = useI18n();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -32,18 +34,15 @@ export default function Contact() {
       className="w-full max-w-4xl mb-20 relative z-10 scroll-animate opacity-0 translate-y-8"
     >
       <h2 className="text-3xl font-bold mb-8 text-center bg-gradient-primary bg-clip-text text-transparent">
-        Get In Touch
+        {t("contact.title")}
       </h2>
       <div className="grid md:grid-cols-2 gap-12">
         <div className="space-y-6">
           <div>
             <h3 className="text-xl font-semibold mb-4 text-slate-200">
-              Let&apos;s Connect
+              {t("contact.connectTitle")}
             </h3>
-            <p className="text-slate-400 mb-6">
-              Have questions, suggestions, or want to collaborate? We&apos;d
-              love to hear from you!
-            </p>
+            <p className="text-slate-400 mb-6">{t("contact.connectDesc")}</p>
           </div>
 
           <div className="space-y-4">
@@ -52,7 +51,9 @@ export default function Contact() {
                 <Mail className="w-6 h-6 text-blue-400" />
               </div>
               <div>
-                <div className="font-medium text-slate-200">Email</div>
+                <div className="font-medium text-slate-200">
+                  {t("contact.email.label")}
+                </div>
                 <a
                   href="mailto:business.gotodev@gmail.com"
                   className="text-blue-400 hover:text-yellow-400 transition"
@@ -67,14 +68,16 @@ export default function Contact() {
                 <Linkedin className="w-6 h-6 text-yellow-400" />
               </div>
               <div>
-                <div className="font-medium text-slate-200">LinkedIn</div>
+                <div className="font-medium text-slate-200">
+                  {t("contact.linkedin.label")}
+                </div>
                 <a
                   href="https://www.linkedin.com/company/gotodev-ma/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-yellow-400 hover:text-blue-400 transition"
                 >
-                  Connect on LinkedIn
+                  {t("contact.linkedin.cta")}
                 </a>
               </div>
             </div>
@@ -88,14 +91,14 @@ export default function Contact() {
                 htmlFor="name"
                 className="block text-sm font-medium text-slate-300 mb-2"
               >
-                Name
+                {t("contact.form.name.label")}
               </label>
               <input
                 type="text"
                 id="name"
                 name="name"
                 className="w-full px-4 py-3 bg-slate-800 border border-slate-600 rounded-lg text-slate-200 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition"
-                placeholder="Your name"
+                placeholder={t("contact.form.name.placeholder")}
                 required
               />
             </div>
@@ -105,14 +108,14 @@ export default function Contact() {
                 htmlFor="email"
                 className="block text-sm font-medium text-slate-300 mb-2"
               >
-                Email
+                {t("contact.form.email.label")}
               </label>
               <input
                 type="email"
                 id="email"
                 name="email"
                 className="w-full px-4 py-3 bg-slate-800 border border-slate-600 rounded-lg text-slate-200 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition"
-                placeholder="your@email.com"
+                placeholder={t("contact.form.email.placeholder")}
                 required
               />
             </div>
@@ -122,14 +125,14 @@ export default function Contact() {
                 htmlFor="message"
                 className="block text-sm font-medium text-slate-300 mb-2"
               >
-                Message
+                {t("contact.form.message.label")}
               </label>
               <textarea
                 id="message"
                 name="message"
                 rows={4}
                 className="w-full px-4 py-3 bg-slate-800 border border-slate-600 rounded-lg text-slate-200 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition resize-none"
-                placeholder="Tell us what's on your mind..."
+                placeholder={t("contact.form.message.placeholder")}
                 required
               ></textarea>
             </div>
@@ -139,16 +142,18 @@ export default function Contact() {
               className="w-full bg-gradient-primary text-white px-6 py-3 rounded-lg font-semibold hover:from-yellow-400 hover:to-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all duration-300 transform hover:scale-105 disabled:opacity-60"
               disabled={formStatus === "sending"}
             >
-              {formStatus === "sending" ? "Sending..." : "Send Message"}
+              {formStatus === "sending"
+                ? t("contact.submit.sending")
+                : t("contact.submit.label")}
             </button>
             {formStatus === "success" && (
               <div className="mt-2 text-green-400 text-center">
-                Message sent successfully!
+                {t("contact.status.success")}
               </div>
             )}
             {formStatus === "error" && (
               <div className="mt-2 text-red-400 text-center">
-                Failed to send message. Please try again.
+                {t("contact.status.error")}
               </div>
             )}
           </form>

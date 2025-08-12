@@ -8,6 +8,7 @@ import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import { Analytics } from "@vercel/analytics/next";
 import { Inter } from "next/font/google";
+import { I18nProvider } from "@/lib/i18n";
 
 const geistSans = Geist({
   subsets: ["latin"],
@@ -90,26 +91,28 @@ export default function RootLayout({
         className={`bg-gradient-to-br from-slate-900 to-slate-800 text-white min-h-screen transition-colors antialiased ${inter.className}`}
         suppressHydrationWarning={true}
       >
-        <header className="w-full border-b border-slate-700/50 bg-slate-900/80 backdrop-blur-sm sticky top-0 z-30">
-          <NavBar />
-        </header>
-        <main className="flex flex-col items-center min-h-[80vh] w-full bg-transparent">
-          {children}
-        </main>
-        <Footer />
-        <ToastContainer
-          position="top-right"
-          autoClose={3000}
-          hideProgressBar={false}
-          newestOnTop
-          closeOnClick
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-          theme="dark"
-          toastClassName="bg-slate-800 border border-slate-700"
-        />
-        <Analytics />
+        <I18nProvider>
+          <header className="w-full border-b border-slate-700/50 bg-slate-900/80 backdrop-blur-sm sticky top-0 z-30">
+            <NavBar />
+          </header>
+          <main className="flex flex-col items-center min-h-[80vh] w-full bg-transparent">
+            {children}
+          </main>
+          <Footer />
+          <ToastContainer
+            position="top-right"
+            autoClose={3000}
+            hideProgressBar={false}
+            newestOnTop
+            closeOnClick
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="dark"
+            toastClassName="bg-slate-800 border border-slate-700"
+          />
+          <Analytics />
+        </I18nProvider>
       </body>
     </html>
   );

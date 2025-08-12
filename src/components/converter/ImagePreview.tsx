@@ -1,6 +1,7 @@
 "use client";
 import { Check, X, Trash2 } from "lucide-react";
 import { toast } from "react-toastify";
+import { useI18n } from "../../lib/i18n";
 
 /* eslint-disable @next/next/no-img-element */
 
@@ -24,10 +25,12 @@ export default function ImagePreview({
   setProgress,
   processing,
 }: ImagePreviewProps) {
+  const { t } = useI18n();
+
   const clearAll = () => {
     setFiles([]);
     setProgress([]);
-    toast.info("Cleared all images");
+    toast.info(t("preview.toast.clearedAll"));
   };
 
   if (files.length === 0) return null;
@@ -36,15 +39,15 @@ export default function ImagePreview({
     <div className="mt-8">
       <div className="flex justify-between items-center mb-4">
         <h3 className="text-lg font-semibold text-slate-200">
-          Uploaded Images ({files.length})
+          {t("preview.uploaded")} ({files.length})
         </h3>
         <button
           onClick={clearAll}
           className="text-sm text-red-400 hover:text-red-300 hover:bg-red-500/10 px-3 py-1 rounded-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-red-400 flex items-center gap-2"
-          aria-label="Clear all images"
+          aria-label={t("preview.aria.clearAll")}
         >
           <Trash2 className="w-4 h-4" />
-          Clear All
+          {t("preview.clearAll")}
         </button>
       </div>
 
@@ -56,11 +59,11 @@ export default function ImagePreview({
           >
             <button
               className="absolute top-2 right-2 bg-red-500/20 hover:bg-red-500/30 rounded-full p-1 text-red-400 hover:text-red-300 focus:outline-none focus:ring-2 focus:ring-red-400 z-10 transition-all duration-300 opacity-0 group-hover:opacity-100"
-              aria-label={`Remove image ${f.file.name}`}
+              aria-label={`${t("preview.aria.removeImage")} ${f.file.name}`}
               onClick={() => {
                 setFiles(files.filter((_, i) => i !== idx));
                 setProgress(progress.filter((_, i) => i !== idx));
-                toast.info("Image removed");
+                toast.info(t("preview.toast.removed"));
               }}
               tabIndex={0}
             >
@@ -82,7 +85,7 @@ export default function ImagePreview({
                 {f.file.name}
               </span>
               <span className="text-[10px] text-slate-400">
-                {(f.file.size / 1024).toFixed(1)} KB
+                {(f.file.size / 1024).toFixed(1)} {t("converter.size.kb")}
               </span>
             </div>
 

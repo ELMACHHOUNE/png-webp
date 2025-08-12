@@ -8,6 +8,7 @@ import {
   ChevronDown,
   Check,
 } from "lucide-react";
+import { useI18n } from "../../lib/i18n";
 
 interface FormatOption {
   value: string;
@@ -15,33 +16,6 @@ interface FormatOption {
   description: string;
   icon: React.ReactElement;
 }
-
-const formatOptions: FormatOption[] = [
-  {
-    value: "webp",
-    label: "WebP (Best for web)",
-    description: "Modern format with excellent compression and quality",
-    icon: <ImageIcon className="w-4 h-4" />,
-  },
-  {
-    value: "jpeg",
-    label: "JPEG",
-    description: "Widely supported, good for photographs",
-    icon: <ImageIcon className="w-4 h-4" />,
-  },
-  {
-    value: "png",
-    label: "PNG",
-    description: "Lossless format, perfect for graphics and transparency",
-    icon: <FileImage className="w-4 h-4" />,
-  },
-  {
-    value: "avif",
-    label: "AVIF",
-    description: "Next-generation format with superior compression",
-    icon: <Zap className="w-4 h-4" />,
-  },
-];
 
 interface FormatSelectorProps {
   outputFormat: string;
@@ -58,6 +32,38 @@ export default function FormatSelector({
   onFormatChange,
   processing,
 }: FormatSelectorProps) {
+  const { t } = useI18n();
+
+  const formatOptions: FormatOption[] = React.useMemo(
+    () => [
+      {
+        value: "webp",
+        label: t("converter.format.webp.label"),
+        description: t("converter.format.webp.desc"),
+        icon: <ImageIcon className="w-4 h-4" />,
+      },
+      {
+        value: "jpeg",
+        label: t("converter.format.jpeg.label"),
+        description: t("converter.format.jpeg.desc"),
+        icon: <ImageIcon className="w-4 h-4" />,
+      },
+      {
+        value: "png",
+        label: t("converter.format.png.label"),
+        description: t("converter.format.png.desc"),
+        icon: <FileImage className="w-4 h-4" />,
+      },
+      {
+        value: "avif",
+        label: t("converter.format.avif.label"),
+        description: t("converter.format.avif.desc"),
+        icon: <Zap className="w-4 h-4" />,
+      },
+    ],
+    [t]
+  );
+
   const selectedFormat = formatOptions.find(
     (option) => option.value === outputFormat
   );
@@ -69,7 +75,7 @@ export default function FormatSelector({
       <div className="relative z-10">
         <h2 className="text-xl font-bold mb-4 text-slate-200 flex items-center gap-2">
           <ArrowRightLeft className="w-6 h-6 text-blue-400" />
-          Select Output Format
+          {t("converter.format.title")}
         </h2>
 
         <div className="relative overflow-visible">
@@ -77,7 +83,7 @@ export default function FormatSelector({
             onClick={() => setIsDropdownOpen(!isDropdownOpen)}
             disabled={processing}
             className="w-full px-4 py-3 bg-slate-800/50 backdrop-blur-sm border border-slate-600/50 rounded-lg text-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 hover:border-slate-500/50 flex items-center justify-between cursor-pointer"
-            aria-label="Select output format"
+            aria-label={t("converter.format.aria")}
           >
             <div className="flex items-center gap-3">
               {selectedFormat?.icon}

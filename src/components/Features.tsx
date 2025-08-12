@@ -7,53 +7,50 @@ import {
   Download,
   Smartphone,
 } from "lucide-react";
-
-const features = [
-  {
-    title: "Quantum-Speed Batch Processing",
-    icon: <CloudUpload className="w-6 h-6" />,
-    description:
-      "Upload 10,000+ images instantly. Our parallel processing engine handles massive batches faster than you can blink.",
-    color: "from-violet-500 to-purple-600",
-  },
-  {
-    title: "Universal Format Alchemy",
-    icon: <ArrowRightLeft className="w-6 h-6" />,
-    description:
-      "Transform any image format into any other. WebP, AVIF, HEIC, PNG, JPEG - we speak them all fluently.",
-    color: "from-emerald-500 to-teal-600",
-  },
-  {
-    title: "Neural Compression Engine",
-    icon: <Zap className="w-6 h-6" />,
-    description:
-      "AI-powered algorithms achieve impossible compression ratios while preserving pixel-perfect quality. Magic meets science.",
-    color: "from-amber-500 to-orange-600",
-  },
-  {
-    title: "Crystal Ball Preview",
-    icon: <Eye className="w-6 h-6" />,
-    description:
-      "See the future before it happens. Live quality comparisons, size predictions, and visual diff analysis in real-time.",
-    color: "from-cyan-500 to-blue-600",
-  },
-  {
-    title: "Teleport Download System",
-    icon: <Download className="w-6 h-6" />,
-    description:
-      "Instant downloads, smart ZIP packaging, and cloud sync ready. Your converted images arrive before you finish clicking.",
-    color: "from-indigo-500 to-blue-600",
-  },
-  {
-    title: "Pocket-Sized Powerhouse",
-    icon: <Smartphone className="w-6 h-6" />,
-    description:
-      "Full desktop power in your pocket. Touch-optimized interface that works flawlessly on any device, anywhere.",
-    color: "from-pink-500 to-fuchsia-600",
-  },
-];
+import { useI18n } from "../lib/i18n";
 
 export default function Features() {
+  const { t } = useI18n();
+
+  const features = [
+    {
+      title: t("features.list.batch.title"),
+      icon: <CloudUpload className="w-6 h-6" />,
+      description: t("features.list.batch.desc"),
+      color: "from-violet-500 to-purple-600",
+    },
+    {
+      title: t("features.list.universal.title"),
+      icon: <ArrowRightLeft className="w-6 h-6" />,
+      description: t("features.list.universal.desc"),
+      color: "from-emerald-500 to-teal-600",
+    },
+    {
+      title: t("features.list.neural.title"),
+      icon: <Zap className="w-6 h-6" />,
+      description: t("features.list.neural.desc"),
+      color: "from-amber-500 to-orange-600",
+    },
+    {
+      title: t("features.list.preview.title"),
+      icon: <Eye className="w-6 h-6" />,
+      description: t("features.list.preview.desc"),
+      color: "from-cyan-500 to-blue-600",
+    },
+    {
+      title: t("features.list.teleport.title"),
+      icon: <Download className="w-6 h-6" />,
+      description: t("features.list.teleport.desc"),
+      color: "from-indigo-500 to-blue-600",
+    },
+    {
+      title: t("features.list.mobile.title"),
+      icon: <Smartphone className="w-6 h-6" />,
+      description: t("features.list.mobile.desc"),
+      color: "from-pink-500 to-fuchsia-600",
+    },
+  ];
+
   return (
     <section
       id="features"
@@ -61,11 +58,10 @@ export default function Features() {
     >
       <div className="text-center mb-16">
         <h2 className="text-5xl font-bold mb-4 bg-gradient-to-r from-white via-blue-100 to-white bg-clip-text text-transparent">
-          Revolutionary Features
+          {t("features.section.title")}
         </h2>
         <p className="text-xl text-slate-400 max-w-2xl mx-auto">
-          Experience the next generation of image processing with features that
-          redefine what's possible
+          {t("features.section.subtitle")}
         </p>
       </div>
 

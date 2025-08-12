@@ -1,6 +1,10 @@
 "use client";
 
+import { useI18n } from "../lib/i18n";
+
 export default function Hero() {
+  const { t } = useI18n();
+
   return (
     <section className="min-h-screen bg-mesh-gradient relative overflow-hidden">
       {/* Floating Elements */}
@@ -28,17 +32,19 @@ export default function Hero() {
             <div className="space-y-8 mb-12">
               <div className="space-y-4">
                 <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-white leading-tight">
-                  <span className="block mb-2">Transform Your</span>
+                  <span className="block mb-2">
+                    {t("hero.headline.leading")}
+                  </span>
                   <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent animate-pulse-slow">
-                    Images Instantly
+                    {t("hero.headline.highlight")}
                   </span>
                 </h1>
 
                 <p className="text-xl sm:text-2xl text-white/80 max-w-3xl mx-auto leading-relaxed">
-                  Professional image conversion with zero compromises.
+                  {t("hero.tagline.line1")}
                   <br />
                   <span className="text-white/60">
-                    Fast, secure, and completely free.
+                    {t("hero.tagline.line2")}
                   </span>
                 </p>
               </div>
@@ -46,13 +52,13 @@ export default function Hero() {
               {/* Feature Pills */}
               <div className="flex flex-wrap justify-center gap-3">
                 <span className="px-4 py-2 bg-purple-500/20 backdrop-blur-sm border border-purple-400/30 rounded-full text-purple-200 text-sm font-medium">
-                  ⚡ Instant Processing
+                  ⚡ {t("hero.pills.instant")}
                 </span>
                 <span className="px-4 py-2 bg-pink-500/20 backdrop-blur-sm border border-pink-400/30 rounded-full text-pink-200 text-sm font-medium">
-                  🔒 100% Private
+                  🔒 {t("hero.pills.private")}
                 </span>
                 <span className="px-4 py-2 bg-cyan-500/20 backdrop-blur-sm border border-cyan-400/30 rounded-full text-cyan-200 text-sm font-medium">
-                  ∞ Unlimited Use
+                  ∞ {t("hero.pills.unlimited")}
                 </span>
               </div>
             </div>
@@ -63,7 +69,7 @@ export default function Hero() {
                 href="#converter"
                 className="group inline-flex items-center gap-4 bg-button-primary hover:bg-button-secondary text-white px-10 py-5 rounded-2xl font-bold text-xl shadow-glow-purple hover:shadow-glow-pink transform hover:scale-105 transition-all duration-500"
               >
-                <span>Start Converting</span>
+                <span>{t("hero.cta")}</span>
                 <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center group-hover:rotate-90 transition-transform duration-300">
                   <svg
                     className="w-4 h-4"
@@ -81,9 +87,7 @@ export default function Hero() {
                 </div>
               </a>
 
-              <p className="text-white/60 text-sm">
-                No registration required • Works in your browser
-              </p>
+              <p className="text-white/60 text-sm">{t("hero.note")}</p>
             </div>
 
             {/* Stats Cards */}
@@ -96,10 +100,10 @@ export default function Hero() {
                   ∞
                 </div>
                 <div className="text-lg font-semibold text-white/90 mb-1">
-                  Unlimited
+                  {t("hero.stats.unlimited.title")}
                 </div>
                 <div className="text-white/60 text-sm">
-                  No conversion limits
+                  {t("hero.stats.unlimited.desc")}
                 </div>
               </div>
 
@@ -108,9 +112,11 @@ export default function Hero() {
                   12+
                 </div>
                 <div className="text-lg font-semibold text-white/90 mb-1">
-                  Formats
+                  {t("hero.stats.formats.title")}
                 </div>
-                <div className="text-white/60 text-sm">All popular types</div>
+                <div className="text-white/60 text-sm">
+                  {t("hero.stats.formats.desc")}
+                </div>
               </div>
 
               <div className="group bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-6 hover:bg-white/15 hover:border-cyan-400/40 transition-all duration-300 hover:shadow-glow-cyan">
@@ -118,10 +124,10 @@ export default function Hero() {
                   0ms
                 </div>
                 <div className="text-lg font-semibold text-white/90 mb-1">
-                  Latency
+                  {t("hero.stats.latency.title")}
                 </div>
                 <div className="text-white/60 text-sm">
-                  Client-side processing
+                  {t("hero.stats.latency.desc")}
                 </div>
               </div>
             </div>
@@ -133,19 +139,19 @@ export default function Hero() {
             style={{ animationDelay: "0.8s" }}
           >
             {[
-              { icon: "🚀", text: "Fast" },
-              { icon: "🔐", text: "Secure" },
-              { icon: "📱", text: "Mobile" },
-              { icon: "💎", text: "Quality" },
+              { icon: "🚀", key: "hero.bottom.fast" },
+              { icon: "🔐", key: "hero.bottom.secure" },
+              { icon: "📱", key: "hero.bottom.mobile" },
+              { icon: "💎", key: "hero.bottom.quality" },
             ].map((item) => (
               <div
-                key={item.text}
+                key={item.key}
                 className="group bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-4 hover:bg-white/10 transition-all duration-300"
               >
                 <div className="text-2xl mb-2 group-hover:scale-110 transition-transform duration-300">
                   {item.icon}
                 </div>
-                <div className="text-white/80 font-medium">{item.text}</div>
+                <div className="text-white/80 font-medium">{t(item.key)}</div>
               </div>
             ))}
           </div>
