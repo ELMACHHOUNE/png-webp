@@ -1,5 +1,11 @@
 "use client";
-import React, { createContext, useContext, useState, useEffect } from "react";
+import React, {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  useCallback,
+} from "react";
 
 type Locale = "en" | "fr";
 
@@ -7,6 +13,8 @@ import en from "../locales/en.json";
 import fr from "../locales/fr.json";
 
 const translations: Record<Locale, Record<string, string>> = { en, fr };
+// Add a browser guard to safely access localStorage
+const isBrowser = typeof window !== "undefined";
 
 interface I18nContextType {
   locale: Locale;
@@ -30,20 +38,34 @@ export function I18nProvider({ children }: { children: React.ReactNode }) {
   const [locale, setLocaleState] = useState<Locale>("en");
 
   useEffect(() => {
-    const savedLocale = localStorage.getItem("locale") as Locale;
-    if (savedLocale && (savedLocale === "en" || savedLocale === "fr")) {
-      setLocaleState(savedLocale);
+    if (!isBrowser) return;
+    try {
+      const savedLocale = localStorage.getItem("locale");
+      if (savedLocale === "en" || savedLocale === "fr") {
+        setLocaleState(savedLocale);
+      }
+    } catch {
+      // ignore storage errors
     }
   }, []);
 
-  const setLocale = (newLocale: Locale) => {
+  const setLocale = useCallback((newLocale: Locale) => {
     setLocaleState(newLocale);
-    localStorage.setItem("locale", newLocale);
-  };
+    if (!isBrowser) return;
+    try {
+      localStorage.setItem("locale", newLocale);
+    } catch {
+      // ignore storage errors
+    }
+  }, []);
 
-  const t = (key: string): string => {
-    return translations[locale][key] || key;
-  };
+  const t = useCallback(
+    (key: string): string => {
+      const dict = translations[locale] || translations.en;
+      return dict[key] ?? key;
+    },
+    [locale]
+  );
 
   return (
     <I18nContext.Provider value={{ locale, setLocale, t }}>

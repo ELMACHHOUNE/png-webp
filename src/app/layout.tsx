@@ -23,8 +23,73 @@ const geistMono = Geist_Mono({
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Image Converter",
-  description: "Convert images instantly",
+  metadataBase: new URL("https://imgconvert.gotodev.ma"),
+  title: {
+    default: "ImgConvert — Fast, Secure PNG, WebP, AVIF, JPEG Converter",
+    template: "%s | ImgConvert",
+  },
+  description:
+    "Convert PNG, JPEG, WebP, AVIF, and more instantly. Free, private, client-side image conversion with batch processing and smart compression. No signup.",
+  applicationName: "ImgConvert",
+  keywords: [
+    "image converter",
+    "png to webp",
+    "webp to png",
+    "png to avif",
+    "jpeg to webp",
+    "heic to jpg",
+    "image compression",
+    "online image converter",
+    "batch image converter",
+    "free image converter",
+    "client-side conversion",
+    "secure image converter",
+  ],
+  alternates: {
+    canonical: "/",
+    languages: {
+      "en-US": "/",
+      "fr-FR": "/fr",
+      "x-default": "/",
+    },
+  },
+  openGraph: {
+    type: "website",
+    url: "https://imgconvert.gotodev.ma/",
+    title: "ImgConvert — Fast, Secure Image Converter (PNG, WebP, AVIF, JPEG)",
+    description:
+      "Free, private, client-side image conversion. Convert PNG, JPEG, WebP, AVIF and more with batch support.",
+    siteName: "ImgConvert",
+    images: [
+      {
+        url: "/icon.png",
+        width: 1200,
+        height: 630,
+        alt: "ImgConvert - Image Converter",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "ImgConvert — Fast, Secure Image Converter",
+    description:
+      "Convert PNG, JPEG, WebP, AVIF instantly. Free, private, client-side.",
+    images: ["/icon.png"],
+  },
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon.png", type: "image/png" },
+    ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
+    other: [
+      { rel: "mask-icon", url: "/safari-pinned-tab.svg", color: "#0f172a" },
+    ],
+  },
+  category: "Utilities",
+  creator: "ImgConvert",
+  publisher: "ImgConvert",
+  manifest: "/site.webmanifest",
 };
 
 export default function RootLayout({
@@ -49,6 +114,14 @@ export default function RootLayout({
         <meta name="msapplication-TileColor" content="#0f172a" />
         <meta name="msapplication-config" content="/browserconfig.xml" />
         <link rel="shortcut icon" href="/icon.png" />
+        <link rel="manifest" href="/site.webmanifest" />
+        <link
+          rel="apple-touch-icon"
+          href="/apple-touch-icon.png"
+          sizes="180x180"
+        />
+        <link rel="icon" href="/icon.png" />
+        <meta name="robots" content="index,follow,max-image-preview:large" />
 
         {/* Enhanced SEO meta tags for 2025 */}
         <meta name="format-detection" content="telephone=no" />
@@ -83,6 +156,37 @@ export default function RootLayout({
                 "Multiple format support",
                 "Privacy-first design",
               ],
+            }),
+          }}
+        />
+        {/* Structured data: WebSite */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              name: "ImgConvert",
+              url: "https://imgconvert.gotodev.ma/",
+              inLanguage: ["en", "fr"],
+              potentialAction: {
+                "@type": "SearchAction",
+                target: "https://imgconvert.gotodev.ma/?q={search_term_string}",
+                "query-input": "required name=search_term_string",
+              },
+            }),
+          }}
+        />
+        {/* Structured data: Organization */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "ImgConvert",
+              url: "https://imgconvert.gotodev.ma/",
+              logo: "https://imgconvert.gotodev.ma/icon.png",
             }),
           }}
         />
