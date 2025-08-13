@@ -33,6 +33,12 @@ export const metadata: Metadata = {
   applicationName: "ImgConvert",
   keywords: [
     // English
+    "img convert",
+    "img converter",
+    "img gotodev",
+    "img to webp",
+    "png to webp gotodev",
+    "img convert gotodev",
     "image converter",
     "online image converter",
     "free image converter",
