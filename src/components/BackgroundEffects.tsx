@@ -13,13 +13,13 @@ export default function BackgroundEffects() {
 
       {/* Floating icons */}
       <div className="absolute top-32 left-8 animate-float-slow">
-        <div className="text-4xl opacity-20 text-blue-400">⚡</div>
+        <div className="text-4xl opacity-20 text-blue-400"></div>
       </div>
       <div className="absolute top-48 right-12 animate-float-medium">
-        <div className="text-3xl opacity-20 text-yellow-400">⚡</div>
+        <div className="text-3xl opacity-20 text-yellow-400"></div>
       </div>
       <div className="absolute bottom-32 left-16 animate-float-fast">
-        <div className="text-2xl opacity-20 text-slate-400">🎯</div>
+        <div className="text-2xl opacity-20 text-slate-400"></div>
       </div>
     </>
   );
